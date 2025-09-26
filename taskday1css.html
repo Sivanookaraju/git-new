@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Styling Methods</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        .method-container {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .method-container p strong {
+            color: #c0392b; /* Highlight for "How It Works" */
+        }
+
+        .code-example {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            white-space: pre-wrap;
+            margin: 10px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .advantage {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .disadvantage {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* External CSS will be linked here in a real scenario, but for this self-contained example,
+           I will simulate it with Internal CSS */
+        h1{
+            color:yellow
+        }
+        h4{
+            color:darkgreen
+        }
+        li{
+            color:blueviolet
+        }
+        p{
+            color:bisque
+        }
+        #ab{
+            color: hotpink;
+        }
+    </style>
+
+    </head>
+<body>
+
+    <header>
+        <h1>CSS DAY-1</h1>
+    </header>
+    <h1>CSS  - Cascading Style Sheets</h1>
+    <h4 id="ab" >Hakon Wium Lie is credited with first proposing the idea of Cascading Style Sheets (CSS) in 1994. At the time, Lie was working with Tim Berners-Lee</h4>
+    <br>
+    <li>Presend we are using 3rd version</li>
+    <li>RWd-- responsive web design </li>
+    <li>layouts(designing)</li>
+    <li>styling</li>
+
+    <div class="method-container">
+        <h2>1. Inline CSS</h2>
+        <p>Inline CSS is a method of styling HTML elements directly within the HTML tag itself. It uses the *style attribute*.</p>
+        <p><strong>How It Works:</strong> You apply CSS rules to a specific HTML element. The styles are written directly inside the opening tag of the element. This method is used for styling a single element only.</p>
+
+        <h3>Example:</h3>
+        <p>HTML</p>
+        <div class="code-example">
+            &lt;p style="<span class="advantage">color: blue</span>; <span class="advantage">font-size: 16px</span>;"&gt;This paragraph is styled using inline CSS.&lt;/p&gt;
+        </div>
+        <p>In this example, the p element has a style attribute that sets the text color to *blue* and the font size to *16 pixels*.</p>
+
+        <h3>Advantages:</h3>
+        <ul>
+            <li class="advantage">Easy and quick for a single, unique style.</li>
+            <li class="advantage">Has a high precedence, meaning it will override styles from internal or external stylesheets.</li>
+        </ul>
+
+        <h3>Disadvantages:</h3>
+        <ul>
+            <li class="disadvantage">Makes HTML files cluttered and difficult to read.</li>
+            <li class="disadvantage">Not reusable; you have to write the same code for every element you want to style.</li>
+            <li class="disadvantage">Hard to manage and maintain for larger projects.</li>
+        </ul>
+    </div>
+
+    <div class="method-container">
+        <h2>2. Internal CSS</h2>
+        <p>Internal CSS, also known as *embedded CSS, is used to style a single HTML page. The styles are placed within a **&lt;style&gt; tag* in the *&lt;head&gt;* section of the HTML document.</p>
+        <p><strong>How It Works:</strong> The *&lt;style&gt;* tag contains all the CSS rules for the entire page. You use selectors (like h1, p, or classes/IDs) to target and style multiple elements.</p>
+
+        <h3>Example:</h3>
+        <p>HTML structure (Code from the &lt;head&gt; section is at the top of this document):</p>
+        <div class="code-example">
+            &lt;head&gt;
+              ...
+              &lt;style&gt;
+                body {
+                  background-color: lightgray;
+                }
+                h1 {
+                  color: green;
+                  text-align: center;
+                }
+              &lt;/style&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+              &lt;h1&gt;This is a heading styled with internal CSS.&lt;/h1&gt;
+              &lt;p&gt;This page has a light gray background.&lt;/p&gt;
+            &lt;/body&gt;
+        </div>
+        <p>In this example, the h1 element is targeted and styled to have a *green color* and be *centered. The body element has a **light gray background*.</p>
+        <h3>Advantages:</h3>
+        <ul>
+            <li class="advantage">Useful for styling a single page that has a unique style.</li>
+            <li class="advantage">All styles for the page are in one place, making it easy to find and edit.</li>
+        </ul>
+
+        <h3>Disadvantages:</h3>
+        <ul>
+            <li class="disadvantage">Styles cannot be reused across multiple pages.</li>
+            <li class="disadvantage">Still makes the HTML file larger and can be difficult to manage for very long stylesheets.</li>
+        </ul>
+    </div>
+
+    <div class="method-container">
+        <h2>3. External CSS</h2>
+        <p>External CSS is the most common and recommended method for styling websites. The styles are written in a *separate file with a .css extension* and then *linked* to the HTML document.</p>
+        <p><strong>How It Works:</strong> You create a separate file (e.g., styles.css) containing all your CSS rules. You link this file to your HTML document using the *&lt;link&gt; tag* in the *&lt;head&gt;* section.</p>
+
+        <h3>Example:</h3>
+        <p>HTML File (index.html):</p>
+        <div class="code-example">
+            &lt;head&gt;
+              ...
+              &lt;link rel="stylesheet" href="styles.css"&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+              &lt;h2&gt;This is an external CSS heading.&lt;/h2&gt;
+              &lt;p&gt;This text is styled from the linked stylesheet.&lt;/p&gt;
+            &lt;/body&gt;
+        </div>
+
+        <p>CSS File (styles.css):</p>
+        <div class="code-example">
+            h2 {
+              color: purple;
+              font-family: Arial, sans-serif;
+            }
+            p {
+              line-height: 1.5;
+              color: #333;
+            }
+        </div>
+        <p>In this example, the HTML file links to styles.css. The styles defined in that CSS file are applied to the HTML elements.</p>
+
+        <h3>Advantages:</h3>
+        <ul>
+            <li class="advantage">Separates content (HTML) from presentation (CSS), making the code cleaner and easier to manage.</li>
+            <li class="advantage">Highly reusable: A single .css file can be linked to multiple HTML pages, ensuring a consistent look and feel across the entire website.</li>
+            <li class="advantage">Makes site-wide changes easy; you only have to edit one file to update styles on all pages.</li>
+            <li class="advantage">Reduces file size and improves loading times as the CSS file is cached by the browser.</li>
+        </ul>
+
+        <h3>Disadvantages:</h3>
+        <ul>
+            <li class="disadvantage">Requires an extra file download for the browser.</li>
+            <li class="disadvantage">The page won't be styled until the external CSS file is loaded.</li>
+        </ul>
+    </div>
+
+</body>
+</html>
